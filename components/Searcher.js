@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import SearchInput from './SearchInput'
-import ShowResult from './SearchInput'
+import ShowResult from './SearchResult'
 import axios from 'axios';
 
 export default function Searcher() {
