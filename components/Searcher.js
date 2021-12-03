@@ -22,7 +22,7 @@ export default function Searcher() {
                     message: res.data.message,
                     position: res.data.position,
                     value: res.data.value,
-                    filteredPi: [res.data.filteredPi]
+                    filteredPi: res.data.filteredPi
                 });
                 
             }).catch(err => {
@@ -40,7 +40,7 @@ export default function Searcher() {
     return (
         <div>
             <SearchInput setSearch={setSearch} searchValue={search}/>
-            <ShowResult />
+            <ShowResult result={result} err={err}/>
         </div>
     )
 }
