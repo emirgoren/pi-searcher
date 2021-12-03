@@ -18,8 +18,9 @@ export default function Searcher() {
             searchValue: search
         }).then(res => {
             
-            // setResult(res.data);
-        }) 
+            console.log(res.data);
+            
+        }).catch(err => console.log(err)); 
 
     }, [search]);
     
