@@ -19,29 +19,28 @@ router.post('/search', (req, res) => {
 
             readStream.on('data', (chunk) => {
                 // control if the searchValue is in the chunk
+
                 const chunkString = chunk.toString();
                 const index = chunkString.indexOf(searchValue);
-
                 
                 if(index !== -1){
 
+                    let slicedChunk, splittedChunk;
+
                     if(index < 10){
-                        const slicedChunk = chunkString.slice(0, index + 11);
-                        const splittedChunk = slicedChunk.replace(searchValue, `#${searchValue}#`).split('#');
-                        console.log(slicedChunk);
-                        console.log(splittedChunk);
+                        slicedChunk = chunkString.slice(0, index + 11);
+                        splittedChunk = slicedChunk.replace(searchValue, `#${searchValue}#`).split('#');
                     }else{
-                        const slicedChunk = chunkString.slice(index - 10, index + 11);
-                        const splittedChunk = slicedChunk.replace(searchValue, `#${searchValue}#`).split('#');
-                        console.log(slicedChunk);
-                        console.log(splittedChunk);
+                        slicedChunk = chunkString.slice(index - 10, index + 11);
+                        splittedChunk = slicedChunk.replace(searchValue, `#${searchValue}#`).split('#');
                     }
 
                     readStream.destroy();
                     res.status(200).json({
                         message: 'Value found in pi.',
                         position: index + 1,
-                        value: searchValue
+                        value: searchValue,
+                        filteredPi: splittedChunk
                     });
                 }
 
