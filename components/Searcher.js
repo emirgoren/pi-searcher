@@ -12,7 +12,9 @@ export default function Searcher() {
     useEffect(() => {
 
         if(search == ''){
-            return;
+            setSearch('');
+            setErr('');
+            setResult({});
         }else{
 
             axios.post('/api/search', {

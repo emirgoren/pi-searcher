@@ -18,3 +18,7 @@
     font-size:20px;
     font-family: 'Roboto Mono', monospace;
 }
+
+.piKey{
+    display: inline-block;
+}

@@ -7,18 +7,14 @@ export default function ShowResult({result, err}) {
 
             {
                 result.filteredPi ? result.filteredPi.map((item, index) => {
-                    console.log(item);
+                    
                     return(
-                        <p key={index} style={result.value == item ? {color:"red"} : {color:"blue"}}>
+                        <p className={styles.piKey} key={index} style={result.value == item ? {color:"red"} : {color:"blue"}}>
                             {item}
                         </p>
                     )
                                    
                 }) : null
-            }
-
-            {
-                result.position ?<><br/> <div>asd</div></> : null
             }
 
             {
