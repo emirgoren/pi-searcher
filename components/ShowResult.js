@@ -9,7 +9,7 @@ export default function ShowResult({result, err}) {
                 result.filteredPi ? result.filteredPi.map((item, index) => {
                     
                     return(
-                        <p className={styles.piKey} key={index} style={result.value == item ? {color:"red"} : {color:"blue"}}>
+                        <p className={styles.piKey} key={index} style={result.value == item ? {color:"#E974A9"} : {color:"#000000"}}>
                             {item}
                         </p>
                     )
