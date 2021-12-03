@@ -15,7 +15,7 @@ router.post('/search', (req, res) => {
 
         if(isNaN(parseInt(searchValue))){
             res.status(400).json({
-                message: 'Search value must be a number'
+                message: 'Value must be a number.'
             });
         }else{
             
@@ -29,8 +29,9 @@ router.post('/search', (req, res) => {
                 if(index !== -1){
                     readStream.destroy();
                     res.status(200).json({
-                        message: 'Search value found in pi',
-                        index: index
+                        message: 'Value found in pi.',
+                        position: index + 1,
+                        value: searchValue
                     });
                 }else{
                     PI += chunkString;
@@ -38,7 +39,7 @@ router.post('/search', (req, res) => {
 
             }).on('end', () => {
                 res.status(404).json({
-                    message: 'Value not found in pi'
+                    message: 'Value not found in pi.'
                 });
             })
 
