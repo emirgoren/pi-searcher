@@ -1,7 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
-![alt text](https://github.com/emirgoren/pi-searcher/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+![alt text](https://github.com/emirgoren/pi-searcher/blob/main/pisearcher.gif "pisearcher gif")
 
 First, run the development server:
 
