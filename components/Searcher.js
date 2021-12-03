@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import SearchInput from './SearchInput'
 import ShowResult from './SearchInput'
+import axios from 'axios';
 
 export default function Searcher() {
 
@@ -13,7 +14,12 @@ export default function Searcher() {
 
     useEffect(() => {
 
-        
+        axios.post('/api/search', {
+            searchValue: search
+        }).then(res => {
+            
+            // setResult(res.data);
+        }) 
 
     }, [search]);
     
