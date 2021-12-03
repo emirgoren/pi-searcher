@@ -27,16 +27,19 @@ router.post('/search', (req, res) => {
                 const index = chunkString.indexOf(searchValue);
                 
                 if(index !== -1){
-                    console.log('found');
-                    console.log(PI);
-                    readStream.close();
-                    // res.status(200).json({
-                    //     message: 'Search value found in pi.txt'
-                    // });
+                    readStream.destroy();
+                    res.status(200).json({
+                        message: 'Search value found in pi',
+                        index: index
+                    });
                 }else{
                     PI += chunkString;
                 }
 
+            }).on('end', () => {
+                res.status(404).json({
+                    message: 'Value not found in pi'
+                });
             })
 
         }

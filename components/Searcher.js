@@ -14,13 +14,17 @@ export default function Searcher() {
 
     useEffect(() => {
 
-        axios.post('/api/search', {
-            searchValue: search
-        }).then(res => {
-            
-            console.log(res.data);
-            
-        }).catch(err => console.log(err)); 
+        if(search == ''){
+            return;
+        }else{
+            axios.post('/api/search', {
+                searchValue: search
+            }).then(res => {
+                
+                console.log(res.data);
+                
+            }).catch(err => console.log(err)); 
+        }
 
     }, [search]);
     
