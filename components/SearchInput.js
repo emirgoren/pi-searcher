@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function SearchInput({searchValue, handleSearchChange}) {
+export default function SearchInput({searchValue, setSearch}) {
     return (
         <div>
-            <input value={searchValue} onChange={handleSearchChange} />
+            <input value={searchValue} onChange={(e) => setSearch(e.target.value)} />
         </div>
     )
 }
