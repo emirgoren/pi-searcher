@@ -3,10 +3,6 @@ const { resolveNaptr } = require('dns');
 const fs = require('fs');
 const path = require('path');
 
-let PI = '';
-
-
-
 
 router.post('/search', (req, res) => {
     const {searchValue} = req.body;
@@ -25,16 +21,28 @@ router.post('/search', (req, res) => {
                 // control if the searchValue is in the chunk
                 const chunkString = chunk.toString();
                 const index = chunkString.indexOf(searchValue);
+
                 
                 if(index !== -1){
+
+                    if(index < 10){
+                        const slicedChunk = chunkString.slice(0, index + 11);
+                        const splittedChunk = slicedChunk.replace(searchValue, `#${searchValue}#`).split('#');
+                        console.log(slicedChunk);
+                        console.log(splittedChunk);
+                    }else{
+                        const slicedChunk = chunkString.slice(index - 10, index + 11);
+                        const splittedChunk = slicedChunk.replace(searchValue, `#${searchValue}#`).split('#');
+                        console.log(slicedChunk);
+                        console.log(splittedChunk);
+                    }
+
                     readStream.destroy();
                     res.status(200).json({
                         message: 'Value found in pi.',
                         position: index + 1,
                         value: searchValue
                     });
-                }else{
-                    PI += chunkString;
                 }
 
             }).on('end', () => {
@@ -51,7 +59,6 @@ router.post('/search', (req, res) => {
     
 
 });
-
 
 
 module.exports = router;
