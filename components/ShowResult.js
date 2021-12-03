@@ -1,11 +1,9 @@
 import React from 'react'
 
-export default function ShowResult() {
+export default function ShowResult(props) {
     return (
         <div>
-            <p>asdasd</p>
-            <p></p>
-            <p></p>
+            
         </div>
     )
 }

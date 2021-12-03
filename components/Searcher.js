@@ -6,11 +6,8 @@ import axios from 'axios';
 export default function Searcher() {
 
     const [search, setSearch] = useState('');
-    const [result, setResult] = useState({
-        firstPart: '',
-        secondPart: '',
-        thirdPart: '',
-    });
+    const [result, setResult] = useState({});
+    const [err, setErr] = useState('');
 
     useEffect(() => {
 
@@ -20,10 +17,21 @@ export default function Searcher() {
             axios.post('/api/search', {
                 searchValue: search
             }).then(res => {
+
+                setResult({
+                    message: res.data.message,
+                    position: res.data.position,
+                    value: res.data.value,
+                    filteredPi: [res.data.filteredPi]
+                });
                 
-                console.log(res.data);
-                
-            }).catch(err => console.log(err)); 
+            }).catch(err => {
+                setErr(err.response.data.message);
+
+                setTimeout(() => {
+                    setErr('');
+                }, 2000);
+            }); 
         }
 
     }, [search]);
