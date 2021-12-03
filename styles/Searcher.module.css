@@ -6,9 +6,10 @@
 
 .resultDiv{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size:35px;
+    font-size:30px;
 }
 
 .searchInput{
