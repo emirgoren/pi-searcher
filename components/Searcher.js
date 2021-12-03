@@ -14,10 +14,13 @@ export default function Searcher() {
         if(search == ''){
             return;
         }else{
+
             axios.post('/api/search', {
                 searchValue: search
             }).then(res => {
 
+                setErr('');
+                
                 setResult({
                     message: res.data.message,
                     position: res.data.position,
@@ -26,12 +29,12 @@ export default function Searcher() {
                 });
                 
             }).catch(err => {
+
+                setResult({});
                 setErr(err.response.data.message);
 
-                setTimeout(() => {
-                    setErr('');
-                }, 2000);
             }); 
+
         }
 
     }, [search]);

@@ -1,0 +1,20 @@
+.searchInputDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resultDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:35px;
+}
+
+.searchInput{
+    border: none;
+    width: 50%;
+    height: 50px;
+    font-size:20px;
+    font-family: 'Roboto Mono', monospace;
+}
