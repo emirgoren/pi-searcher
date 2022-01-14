@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { resolveNaptr } = require('dns');
 const fs = require('fs');
 const path = require('path');
 
