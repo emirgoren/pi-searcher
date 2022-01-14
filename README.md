@@ -3,6 +3,7 @@ An application to surf Pi. Built with [Next](https://nextjs.org/).
 
 ## Pi Searcher
 Search your value in the first million digits of Pi.
+<pre>*found</pre>
 
 ![alt text](https://github.com/emirgoren/pi-searcher/blob/main/pisearcher.gif "pisearcher gif")
 
