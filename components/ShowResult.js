@@ -6,7 +6,7 @@ export default function ShowResult({result, err}) {
         <div className={styles.resultDiv}>
 
             {
-                result.position ? <p style={{fontSize: "15px"}}>Founded in position <span style={{color:"#59B800"}}>{result.position}</span></p>: null 
+                result.position ? <p style={{fontSize: "15px"}}>Found in position <span style={{color:"#59B800"}}>{result.position}</span></p>: null 
             }
 
             <div>
