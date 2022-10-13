@@ -2,7 +2,7 @@
   "name": "pi-searcher",
   "private": true,
   "scripts": {
-    "dev": "node ./server/server.js",
+    "dev": "nodemon ./server/server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js"
   },
