@@ -35,17 +35,17 @@ router.post('/search', (req, res) => {
                     let slicedChunk, splittedChunk;
                     if (index < 10) {
                         slicedChunk = chunkString.slice(0, index + 11);
-                        splittedChunk = slicedChunk.replace(searchValue, `#${searchValue}#`).split('#');
+                        splittedChunk = slicedChunk.replace(finalStringWithNumbers, `#${finalStringWithNumbers}#`).split('#');
                     } else {
                         slicedChunk = chunkString.slice(index - 10, index + 11);
-                        splittedChunk = slicedChunk.replace(searchValue, `#${searchValue}#`).split('#');
+                        splittedChunk = slicedChunk.replace(finalStringWithNumbers, `#${finalStringWithNumbers}#`).split('#');
                     }
 
                     readStream.destroy();
                     res.status(200).json({
                         message: 'Value found in pi.',
                         position: index + 1,
-                        value: searchValue,
+                        value: finalStringWithNumbers,
                         filteredPi: splittedChunk
                     });
                 }
